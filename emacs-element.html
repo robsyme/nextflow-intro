@@ -1,0 +1,101 @@
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+
+<dom-module id="emacs-window">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-shadow: 20px 20px 30px rgba(1,1,1,0.3);
+      }
+
+      .window {
+        height: 100%;
+        text-align: left;
+        border-radius: 10px;
+        margin: auto;
+        position: relative;
+      }
+
+      .window header {
+        background: #E0E8F0;
+        height: 30px;
+        border-radius: 8px 8px 0 0;
+        padding-left: 10px;
+      }
+
+      .window header .button {
+        width: 12px;
+        height: 12px;
+        margin: 10px 8px 0 0;
+        display: inline-flex;
+        border-radius: 8px;
+      }
+
+      .window header .button.green {
+        background: #3BB662;
+      }
+
+      .window header .button.yellow {
+        background: #E5C30F;
+      }
+
+      .window header .button.red {
+        background: #E75448;
+      }
+
+      .window div.terminal {
+        color: #2C2C2C;
+        font-family: 'Source Code Pro', 'Consolas', 'Courier New', 'Courier';
+        font-size: 12pt;
+        background: white;
+        padding: 10px;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        top: 30px;
+        bottom: 0;
+        overflow: auto;
+      }
+    
+      .console-output {
+        color: gray;
+      }
+
+      .typed-cursor{
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+      }
+      @keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-webkit-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+      }
+        @-moz-keyframes blink{
+        0% { opacity:1; }
+        50% { opacity:0; }
+        100% { opacity:1; }
+      }
+    </style>
+    <div class="window">
+      <header>
+	<div class="button green"></div>
+	<div class="button yellow"></div>
+	<div class="button red"></div>
+      </header>
+      <div class="terminal">
+	<div class="history"></div>
+	<span class="prompt"></span>	
+	<span class="typed-cursor"></span>
+      </div>
+    </div>
+  </template>
+  <script src="emacs-element.js"></script>
+</dom-module>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script scr="bower_components/webcomponentsjs/webcomponents/webcomponents-lite.min.js"></script>
+    <link rel="import" href="./emacs-element.html">
+    <link rel="import" href="./terminal-element.html">
+    <link href="css/basic.css" rel="stylesheet" />
+    <title>Nextflow show-and-tell | by Robert Syme @robsyme</title>
+    <meta name="description" content="A demonstration of Nextflow." />
+    <meta name="author" content="Robert Syme" />
+    <meta charset="UTF-8">
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,700,300|Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/basic.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="impress">
+
+      <div id="title" class="step dark" data-x="0" data-y="0" data-z="500">
+        <h1>CIC Show-and-Tell: <span class="emphasis">Nextflow</span></h1>
+        <h2 id="author">@robsyme</h2>
+      </div>
+
+      <div id="slide1" class="step" data-x="0" data-y="0">
+	<div class="flip-container">
+          <div class="flipper">
+            <div class="front">
+	      <emacs-window id="slide1-emacs">
+		<pre class="lines" pause="2000">
+		  #!/usr/bin/env nextflow
+
+		  cheers = Channel.from &quot;Bonjour&quot;, &quot;&Gamma;&epsilon;&iota;&alpha; &sigma;&omicron;&upsilon;&quot;, &quot;Ciao&quot;, &quot;Hello&quot;, &quot;Hola&quot;
+
+		  process sayHello {
+		  &nbsp&nbsp;input:
+		  &nbsp&nbsp;val x from cheers
+
+		  &nbsp&nbsp;"""
+		  &nbsp&nbsp;echo $x world!
+		  &nbsp&nbsp;"""
+		  }</pre>
+	      </emacs-window>
+	    </div>
+            <div class="back">
+	      <terminal-window id="slide1-term">
+		<pre class="console-command" pause="2000">nextflow run main.nf</pre>
+		<pre class="console-output">N E X T F L O W  ~  version 0.17.3</pre>
+		<pre class="console-output">Launching ./main.nf'</pre>
+		<pre class="console-output">[warm up] executor &gt; local</pre>
+		<pre class="console-output">[5a/097b61] Submitted process &gt; sayHello (1)</pre>
+		<pre class="console-output">[4a/34a4b4] Submitted process &gt; sayHello (4)</pre>
+		<pre class="console-output">[7f/81dfd5] Submitted process &gt; sayHello (5)</pre>
+		<pre class="console-output">[eb/8b1c4a] Submitted process &gt; sayHello (3)</pre>
+		<pre class="console-output">[69/5b3dc6] Submitted process &gt; sayHello (2)</pre>
+		<pre class="console-output">Hola world!</pre>
+		<pre class="console-output">Hello world!</pre>
+		<pre class="console-output">Ciao world!</pre>
+		<pre class="console-output">Bonjour world!</pre>
+		<pre class="console-output">&Gamma;&epsilon;&iota;&alpha; &sigma;&omicron;&upsilon; world!</pre>
+	      </terminal-window>
+	    </div>
+          </div>
+	</div>
+      </div>
+
+      <div id="main-start" class="step" data-x="-200" data-rotate-y="-10">
+	<p class="tree" align="left">
+.<br>
+&#9492;&#9472;&#9472; <strong>main.nf</strong><br>
+	</p>
+      </div>
+
+      <div id="slide2" class="step">
+      </div>
+
+      <div id="slide3" class="step" data-x="-400" data-rotate-y="-10">
+	<p class="tree" align="left">
+.<br>
+&#9500;&#9472;&#9472; <strong>main.nf</strong><br>
+&#9500;&#9472;&#9472; .nextflow.history<br>
+&#9500;&#9472;&#9472; .nextflow.log<br>
+&#9492;&#9472;&#9472; work<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 4a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 34a4b4d888d62c90ae71f7d5c8356f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 5a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 097b610d29c05984571e4562041e48<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 69<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 5b3dc6d2ad4e1028d25588d3f046b8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 7f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 81dfd57542e3a849f75dbb3af6a952<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; eb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 8b1c4a81f1e4f05d445082f06753d9<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+	</p>
+      </div>
+
+      <div id="slide4" class="step" data-x="-400" data-rotate-y="-10">
+	<p class="tree" align="left">
+.<br>
+&#9500;&#9472;&#9472; main.nf<br>
+&#9500;&#9472;&#9472; .nextflow.history<br>
+&#9500;&#9472;&#9472; .nextflow.log<br>
+&#9492;&#9472;&#9472; work<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 4a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 34a4b4d888d62c90ae71f7d5c8356f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; <strong>.command.run</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; <strong>.command.sh</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 5a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 097b610d29c05984571e4562041e48<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 69<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 5b3dc6d2ad4e1028d25588d3f046b8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 7f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 81dfd57542e3a849f75dbb3af6a952<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; eb<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; 8b1c4a81f1e4f05d445082f06753d9<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+	</p>
+      </div>
+
+      <div id="slide5" class="step">
+	<terminal-window id="slide5-term">
+	  <pre class="console-command" pause="0">cat work/4a/*/.command.run</pre>
+	  <pre class="console-output">#!/bin/bash</pre>
+	  <pre class="console-output"># NEXTFLOW TASK: sayHello (4)</pre>
+	  <pre class="console-output">set -e</pre>
+	  <pre class="console-output">set -u</pre>
+	  <pre class="console-output">NXF_DEBUG=${NXF_DEBUG:=0}; [[ $NXF_DEBUG &gt; 2 ]] &amp;&amp; set -x</pre>
+	  <pre class="console-output"><span style="color: #E5C30F;">&lt;snip&gt;</span></pre>
+	  <pre class="console-output">COUT=$PWD/.command.po; mkfifo "$COUT"</pre>
+	  <pre class="console-output">CERR=$PWD/.command.pe; mkfifo "$CERR"</pre>
+	  <pre class="console-output">tee .command.out &lt; "$COUT" &amp;</pre>
+	  <pre class="console-output">tee1=$!</pre>
+	  <pre class="console-output">tee .command.err &lt; "$CERR" &gt;&amp;2 &amp;</pre>
+	  <pre class="console-output">tee2=$!</pre>
+	  <pre class="console-output">(</pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">/bin/bash -ue /home/demo/work/4a/34a4b.../.command.sh</strong></pre>
+	  <pre class="console-output">) &gt;"$COUT" 2&lt;"$CERR" &amp;</pre>
+	  <pre class="console-output">pid=$!</pre>
+	  <pre class="console-output">wait $pid || ret=$?</pre>
+	  <pre class="console-output">wait $tee1 $tee2</pre>
+	  <pre class="console-command" pause="0">cat work/4a/*/.command.sh</pre>
+	  <pre class="console-output">#!/bin/bash -ue</pre>
+	  <pre class="console-output">echo 'Hola world!'</pre>
+	</terminal-window>
+      </div>
+
+      <div id="slide6" class="step">
+	<terminal-window id="slide6-term">
+	  <pre class="console-command" pause="2000">nextflow run <strong style="color: #3BB662;">-process.executor sge</strong> main.nf</pre>
+	  <pre class="console-output">N E X T F L O W  ~  version 0.17.3</pre>
+	  <pre class="console-output">Launching ./main.nf'</pre>
+	  <pre class="console-output">[warm up] executor &gt; <strong style="color: #3BB662;">sge</strong></pre>
+	  <pre class="console-output">[58/9ae571] Submitted process &gt; sayHello (1)</pre>
+	  <pre class="console-output">[67/3517f1] Submitted process &gt; sayHello (4)</pre>
+	  <pre class="console-output">[d9/daf56a] Submitted process &gt; sayHello (2)</pre>
+	  <pre class="console-output">[8c/8472b0] Submitted process &gt; sayHello (5)</pre>
+	  <pre class="console-output">[90/90b7be] Submitted process &gt; sayHello (3)</pre>
+	  <pre class="console-output">Hola world!</pre>
+	  <pre class="console-output">Hello world!</pre>
+	  <pre class="console-output">&Gamma;&epsilon;&iota;&alpha; &sigma;&omicron;&upsilon; world!</pre>
+	  <pre class="console-output">Ciao world!</pre>
+	  <pre class="console-output">Bonjour world!</pre>
+	</terminal-window>
+      </div>
+
+      <div id="slide7" class="step" data-x="-400" data-rotate-y="-10">
+	<p class="tree" align="left">
+.<br>
+&#9500;&#9472;&#9472; main.nf<br>
+&#9500;&#9472;&#9472; .nextflow.history<br>
+&#9500;&#9472;&#9472; .nextflow.log<br>
+&#9492;&#9472;&#9472; work<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 58<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; 9ae5711ebe2548f8bf3598ed351d84<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; <strong>.command.run</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; <strong>.command.sh</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 67<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; 3517f1fbfb9c06579f5971f2a6362a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 8c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; 8472b0c97003479207f4c8bba77e54<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 90<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; 90b7be0324f9bdc8613f290d01e18a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#9492;&#9472;&#9472; .exitcode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; d9<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; daf56a586b3c6c108b4b7ab1a3dd2e<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.err<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; .command.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; .exitcode<br>
+	</p>
+      </div>
+
+      <div id="slide8" class="step">
+	<terminal-window id="slide8-term">
+	  <pre class="console-command" pause="0"><span style="color: #E5C30F;"># After running with SGE executor</span></pre>
+	  <pre class="console-command" pause="0">cat work/58/*/.command.sh</pre>
+	  <pre class="console-output">#!/bin/bash -ue</pre>
+	  <pre class="console-output">echo 'Hola world!'</pre>
+	  <pre class="console-command" pause="0">head work/58/*/.command.run <span style="color: #E5C30F"></pre>
+	  <pre class="console-output">#!/bin/bash</pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -wd /home/demo/work/58/9ae5711ebe2548f8bf3598ed351d84</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -N nf-sayHello_(1)</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -o /home/demo/work/58/9ae5711ebe2548f8bf3598ed351d84/.command.log</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -j y</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -terse</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -V</strong></pre>
+	  <pre class="console-output"><strong style="color: #3BB662;">#$ -notify</strong></pre>
+	  <pre class="console-output"></pre>
+	  <pre class="console-output"># NEXTFLOW TASK: sayHello (1)</pre>
+	</terminal-window>
+      </div>
+
+      <div id="slide9" class="step slide">
+	<h1>Current Executors</h1>
+	<ul>
+	  <li>Local</li>
+	  <li>Sun Grid Engine</li>
+	  <li>Platform Load Sharing Facility (LSF)</li>
+	  <li>SLURM</li>
+	  <li>PBS/Torque</li>
+	  <li>HTCondor</li>
+	  <li>DRMAA</li>
+	  <li>Cirrus</li>
+	  <li>DNAnexus</li>
+	  <li><strong>Ignite</strong></li>
+	</ul>
+      </div>
+
+      <div id="slide10" class="step">
+	<terminal-window id="slide10-term">
+	  <pre class="console-command" pause="0"><span style="color: #E5C30F;"># On each worker node:</span></pre>
+	  <pre class="console-command" pause="1000">nextflow node -bg</pre>
+	  <pre class="console-output">Configuring Apache Ignite cluster daemon</pre>
+	  <pre class="console-command" pause="0"></pre>
+	  <pre class="console-command" pause="0"></pre>
+	  <pre class="console-command" pause="1000"></pre>
+	  <pre class="console-command" pause="1000"><span style="color: #E5C30F;"># On the master node:</span></pre>
+	  <pre class="console-command" pause="1000">nextflow run <strong style="color: #3BB662;">-process.executor ignite</strong> main.nf</pre>
+	  <pre class="console-output">N E X T F L O W  ~  version 0.17.3</pre>
+	  <pre class="console-output">Launching ./main.nf'</pre>
+	  <pre class="console-output">[warm up] executor &gt; <strong style="color: #3BB662;">ignite</strong></pre>
+	  <pre class="console-output">etc, etc</pre>
+	</terminal-window>
+      </div>
+
+      <div id="slide10-2" class="step test-slide">
+	<h1>Joining Nextflow processes</h1>
+      </div>
+      
+
+      <div id="slide11" class="step">
+	<emacs-window id="slide11-emacs">
+	  <pre class="lines" pause="0">
+	    cheers = Channel.from &quot;Bonjour&quot;, &quot;&Gamma;&epsilon;&iota;&alpha; &sigma;&omicron;&upsilon;&quot;, &quot;Ciao&quot;, &quot;Hello&quot;, &quot;Hola&quot;
+
+	    process <span style="color: #FA6900;">sayHello</span> {
+	    &nbsp;&nbsp;input:
+	    &nbsp;&nbsp;val x from cheers
+	    
+	    &nbsp;&nbsp;output:
+	    &nbsp;&nbsp;file 'output.txt' into greetings
+	    
+	    &nbsp;&nbsp;"echo '$x world' > output.txt"
+	    }
+
+	    process <span style="color: #21A4BF;">enthusiasm</span> {
+	    &nbsp;&nbsp;input:
+	    &nbsp;&nbsp;file 'boring_greeting.txt' from greetings
+	    
+	    &nbsp;&nbsp;output:
+	    &nbsp;&nbsp;file 'enthusiastic.txt' into friendly
+	    
+	    &nbsp;&nbsp;"""
+	    &nbsp;&nbsp;#!/usr/bin/env ruby
+	    &nbsp;&nbsp;File.open('enthusiastic.txt', 'w') do |out|
+	    &nbsp;&nbsp;out.print File.read('boring_greeting.txt').chomp
+	    &nbsp;&nbsp;out.puts '!!!!'
+	    &nbsp;&nbsp;end
+	    &nbsp;&nbsp;"""
+	    }</pre>
+	</emacs-window>
+      </div>
+
+      <div id="slide12" class="step test-slide" data-x="-630" data-rotate-y="-20">
+	<p class="tree" align="left">
+.<br>
+&#9500;&#9472;&#9472; main.nf<br>
+&#9492;&#9472;&#9472; work<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 09<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #21A4BF;">a1209973ec03499042bb693cde5373</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; <strong>boring_greeting.txt -&gt; /home/demo/work/b5/93909<span style="color: gray;">...</span>/output.txt</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; enthusiastic.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #FA6900;">a610f0c17e293224da640908fe0138</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 12<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #21A4BF;">f67333524f72e464351306eeca6ca7</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; boring_greeting.txt -&gt; /home/demo/work/2a/bcadc<span style="color: gray;">...</span>/output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; enthusiastic.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 2a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #FA6900;">bcadc505ed8865d34f4f4a5f4ccda6</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 49<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #21A4BF;">2e619875bb46ba2df926246cef961a</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; boring_greeting.txt -&gt; /home/demo/work/11/a610f<span style="color: gray;">...</span>/output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; enthusiastic.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 95<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #FA6900;">65b1f6fb7f1cbb1faffe9e6dd93d9b</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; 99<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #21A4BF;">6c3c7ccd08abe2b01bbccae0d31e03</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; boring_greeting.txt -&gt; /home/demo/work/dc/c1a4c<span style="color: gray;">...</span>/output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; enthusiastic.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; b5<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #FA6900;">9390903c9534a3d1e12707a0e281ec</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; dc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp; &#9492;&#9472;&#9472; <span style="color: #FA6900;">c1a4c0b45df57dff6b99a377373236</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; <strong>output.txt</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; ec<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; <span style="color: #21A4BF;">6ec84ac25fe9ccb411f161e85c504c</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; boring_greeting.txt -&gt; /home/demo/work/95/65b1f6<span style="color: gray;">...</span>/output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; enthusiastic.txt</p>
+      </div>
+
+      <div id="slide13" class="step test-slide" data-x="0">
+	<h1>Livecoding time</h1>
+
+	<h3>(a.k.a. The slides are too small to fit the code)</h3>
+      </div>
+
+      <div id="thanks" class="step dark" data-z="500">
+        <h1>Thanks, CIC!</h1>
+	<a href="http://www.nextflow.io/">http://nextflow.io</a>
+        <h2 id="author">@robsyme</h2>
+      </div>
+
+    </div>
+
+    <script src="js/impress.js"></script>
+    <script src="js/presentation.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "showandtell",
+  "authors": [
+    "Rob Syme <rob.syme@gmail.com>"
+  ],
+  "description": "Simple slide deck for talking about Nextflow.io",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  }
+}
